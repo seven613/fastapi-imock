@@ -9,6 +9,7 @@
 '''
 
 from datetime import datetime, timedelta
+from enum import auto
 from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -155,7 +156,7 @@ class Token(BaseModel):
     token_type: str
 
 
-pwd_context = CryptContext(schemes=['bcrypt'], deprecated=True)
+pwd_context = CryptContext(schemes=['bcrypt'], deprecated="auto")
 
 oauth2_schema_jwt = OAuth2PasswordBearer(
     tokenUrl="/chapter06/jwt/token")  # 请求token的url地址
